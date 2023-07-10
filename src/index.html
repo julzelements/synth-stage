@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    #filter {
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="myDiv"></div>
+  <div>Hi Mum</div>
+  <button>connect</button>
+  <div>Param change is "176"</div>
+  <div>The filter param is "43"</div>
+  <div id="filter"></div>
+  <div>Filter</div>
+  <script>
+    const mapByteToColour = (value) => {
+      const ratio = value / 127;
+      let color;
+      if (ratio <= 0.5) {
+        const greenToYellow = ratio * 2;
+        const red = Math.floor(greenToYellow * 255);
+        const green = 255;
+        color = `rgb(${red},${green},0)`;
+      } else {
+        const yellowToRed = (ratio - 0.5) * 2;
+        const red = 255;
+        const green = 255 - Math.floor(yellowToRed * 255);
+        color = `rgb(${red},${green},0)`;
+      }
+      return color;
+    };
+
+    const handleFilterChange = (data) => {
+      console.log(data);
+      const byte = data[2];
+      const filter = document.getElementById("filter");
+      filter.innerHTML = byte;
+      filter.style.backgroundColor = mapByteToColour(byte);
+    };
+    const app = async () => {
+      const button = document.querySelector("button");
+
+      if (navigator.requestMIDIAccess) {
+        console.log("Browser supports MIDI!");
+      }
+
+      const access = await navigator.requestMIDIAccess({ sysex: true });
+      const input = Array.from(access.inputs.values()).find((input) => input.name === "monologue KBD/KNOB");
+      if (input) {
+        console.log(input);
+        input.onmidimessage = (ev) => ev.data[0] === 176 && ev.data[1] === 43 && handleFilterChange(ev.data);
+      }
+
+      button.addEventListener("click", (event) => {});
+    };
+    app();
+  </script>
+</body>
