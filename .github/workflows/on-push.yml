@@ -21,4 +21,4 @@ jobs:
           aws configure set region "ap-southeast-2"
 
       - name: Deploy index to s3
-        run: aws s3 cp ./index.html s3://synth-stage/index.html
+        run: aws s3 cp ./index.html s3://www.synth-stage.com/index.html
