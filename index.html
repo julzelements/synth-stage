@@ -9,7 +9,6 @@
 </head>
 <body>
   <div id="myDiv"></div>
-  <div>Hi Mum</div>
   <button>connect</button>
   <div>Param change is "176"</div>
   <div>The filter param is "43"</div>
@@ -48,6 +47,7 @@
       }
 
       const access = await navigator.requestMIDIAccess({ sysex: true });
+
       const input = Array.from(access.inputs.values()).find((input) => input.name === "monologue KBD/KNOB");
       if (input) {
         console.log(input);

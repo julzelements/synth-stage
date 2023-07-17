@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: #c32323;
+        transform: rotate(0deg);
+        /* transition: transform 0.3s ease-in-out; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box">Hello, World!</div>
+    <input type="range" min="0" max="360" value="0" id="slider" />
+  </body>
+  <script>
+    const box = document.querySelector("#box");
+    const slider = document.querySelector("#slider");
+
+    slider.addEventListener("input", () => {
+      const rotation = slider.value;
+      box.style.transform = `rotate(${rotation}deg)`;
+    });
+  </script>
+</html>
