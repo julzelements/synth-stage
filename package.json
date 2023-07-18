@@ -1,0 +1,25 @@
+{
+  "name": "synth-stage",
+  "version": "1.0.0",
+  "description": "This project's purpose is simple: to transform the way we learn to use synthesizers. Specifically, the Korg Monologue. This is not just another MIDI controller project. It's a virtual classroom focused on teaching beginners how to make the most of their first real, physical synthesizer.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julzelements/synth-stage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julzelements/synth-stage/issues"
+  },
+  "homepage": "https://github.com/julzelements/synth-stage#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.13.0"
+  }
+}
