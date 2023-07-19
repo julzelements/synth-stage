@@ -33,8 +33,5 @@ jobs:
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-      - name: Deploy synth-backstage docker build to s3
-        run: aws s3 cp
-
       - name: Deploy client page to s3
         run: aws s3 cp ./index.html s3://www.synth-stage.com/index.html
