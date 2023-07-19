@@ -28,7 +28,7 @@ ws.onmessage = (message) => {
   document.getElementById("classroom").innerHTML = "";
   classroom.forEach((student) => {
     const studentDiv = document.createElement("div");
-    studentDiv.textContent = `${student.name}: ${"▮".repeat(student.sliderValue / 10)}`;
+    studentDiv.textContent = `${student.name}: ${"*".repeat(student.sliderValue / 10)}`;
     document.getElementById("classroom").appendChild(studentDiv);
   });
 };

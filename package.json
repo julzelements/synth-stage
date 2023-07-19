@@ -4,7 +4,7 @@
   "description": "This project's purpose is simple: to transform the way we learn to use synthesizers. Specifically, the Korg Monologue. This is not just another MIDI controller project. It's a virtual classroom focused on teaching beginners how to make the most of their first real, physical synthesizer.",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
